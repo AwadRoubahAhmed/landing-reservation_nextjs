@@ -3,6 +3,7 @@ import Link from "next/link";
 import { User, AlignJustify, X, Hotel } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useFilterContext } from "../context/Context";
+import MenuItems from "./MenuItems";
 
 export default function NavBar() {
   // State;
@@ -11,7 +12,7 @@ export default function NavBar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   // Gestion du menu
-  const menuItems = [
+  const menus = [
     { title: "Home", href: "/" },
     { title: "About", href: "/About" },
     { title: "Nos Offres", href: "/NosOffres" },
@@ -20,8 +21,10 @@ export default function NavBar() {
 
   // Affichage(render);
   return (
-    <nav className="bg-slate-950 bg-opacity-45 border-b text-slate-100 w-full h-10 flex fixed top-0 left-0 p-4 md:p-6 lg:p-8 z-10">
+    <nav className="flex bg-slate-950 bg-opacity-45 border-b text-slate-100 w-full h-10 fixed top-0 left-0 p-4 md:p-6 lg:p-8 z-10">
+      {/* container */}
       <div className="container flex justify-between items-center">
+        {/* Logo ( Icon + Title ) */}
         <div className="flex">
           <Link
             href="/"
@@ -29,28 +32,24 @@ export default function NavBar() {
           >
             <Hotel
               size={20}
-              className="text-2xl hover:text-yellow-500 lg:text-3xl xl:text-4xl lg:mt-3"
+              className="text-xl hover:text-yellow-500 lg:text-2xl xl:text-3xl yxl:mt-12"
             />
             <h1 className="hover:text-yellow-500 font-bold">
               Villa hôtel
-              <span className="font-bold text-yellow-500 text-2xl lg:text-3xl xl:text-4xl">
+              <span className="font-bold text-yellow-500 text-xl lg:text-2xl xl:text-3xl">
                 .
               </span>
             </h1>
           </Link>
         </div>
-        <div className="hidden md:block space-x-4 text-md lg:text-lg">
-          {menuItems.map((item, index) => (
-            <Link
-              href={item.href}
-              key={index}
-              className="hover:text-yellow-500"
-            >
-              {item.title}
-            </Link>
+        {/* Menu déroulant */}
+        <div className="hidden md:flex justify-center items-center space-x-4 text-md lg:text-lg">
+          {menus.map((item, index) => (
+            <MenuItems key={index} item={item} />
           ))}
         </div>
-        <div className="hidden md:block text-md lg:text-lg xl:text-xl">
+        {/* Utilisateur connecté */}
+        <div className="hidden md:block text-md lg:text-lg xl:text-xl border rounded-full p-0.5">
           <Link href="/">
             <User className="text-slate-100 hover:text-yellow-500 " />
           </Link>
@@ -67,14 +66,8 @@ export default function NavBar() {
         isMenuOpen && (
           <div className="md:hidden absolute top-10 left-0 w-full bg-slate-800 bg-opacity-90 text-slate-100 transition">
             <div className="flex flex-col justify-center items-center h-[300px] space-y-4 font-bold">
-              {menuItems.map((item, index) => (
-                <Link
-                  href={item.href}
-                  key={index}
-                  className="hover:text-yellow-500 text-base transition"
-                >
-                  {item.title}
-                </Link>
+              {menus.map((item, index) => (
+                <MenuItems key={index} item={item} />
               ))}
             </div>
           </div>

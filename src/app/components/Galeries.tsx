@@ -1,23 +1,24 @@
 "use client";
 // import Image from "next/image";
 import { useState } from "react";
+import ImgItems from "./ImgItems";
 
 // Fonctions;
 const imagesGaleries = [
-  "room1.jpg",
-  "room2.jpg",
-  "room3.jpg",
-  "room4.jpg",
-  "room5.jpg",
-  "room1.jpg",
+  "villa1.jpg",
+  "villa2.jpg",
+  "villa3.jpg",
+  "villa4.jpg",
+  "villa5.jpg",
+  "villa6.jpg",
 ];
 
 export default function Galeries() {
   // State;
   const [selectedImg, setSelectedImg] = useState<string>(imagesGaleries[0]);
-
+  const [infosDetail, setInfosDetail] = useState([])
   // Comportements;
-  // const handleSelectedImg = (roomImg: string) => setSelectedImg(roomImg);
+  const handleSelectedImg = (item: string) => setSelectedImg(item);
 
   // Rendu;
   return (
@@ -27,21 +28,16 @@ export default function Galeries() {
           <img
             src={selectedImg}
             alt="Villa Picture"
-            // width={400}
-            // height={600}
             className="w-full h-full object-cover rounded-md"
           />
         </div>
-        <div className="flex  md:flex-col space-x-4 md:space-x-0 md:space-y-4 mt-4 md:mt-0 md:ml-4 overflow-x-auto md:overflow-x-visible">
+        <div className="flex md:flex-col space-x-4 md:space-x-0 md:space-y-4 mt-4 md:mt-0 md:ml-4 overflow-x-auto md:overflow-x-visible">
           {imagesGaleries.map((item, index) => (
-            <img
-              src={item}
-              alt=""
+            <ImgItems
               key={index}
-              // width={400}
-              // height={600}
-              className={`w-full h-16 object-cover rounded-md cursor-pointer transition-all duration-300 gap-3 ${selectedImg === item && "ring-2 ring-yellow-500"}`}
-              onClick={() => setSelectedImg(item)}
+              selectedImg={selectedImg}
+              item={item}
+              handleSelectedImg={handleSelectedImg}
             />
           ))}
         </div>
