@@ -4,6 +4,7 @@ import { User, AlignJustify, X, Hotel } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useFilterContext } from "../context/Context";
 import MenuItems from "./MenuItems";
+import { menus } from "../constant/Constants";
 
 export default function NavBar() {
   // State;
@@ -11,13 +12,13 @@ export default function NavBar() {
   // Comportements;
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Gestion du menu
-  const menus = [
-    { title: "Home", href: "/" },
-    { title: "About", href: "/About" },
-    { title: "Nos Offres", href: "/NosOffres" },
-    { title: "Contact", href: "/Contact" },
-  ];
+  // // Gestion du menu
+  // const menus = [
+  //   { title: "Home", href: "/" },
+  //   { title: "About", href: "/About" },
+  //   { title: "Nos Offres", href: "/NosOffres" },
+  //   { title: "Contact", href: "/Contact" },
+  // ];
 
   // Affichage(render);
   return (
@@ -28,11 +29,11 @@ export default function NavBar() {
         <div className="flex">
           <Link
             href="/"
-            className="flex justify-center items-center text-lg lg:text-xl xl:text-2xl"
+            className="flex justify-center items-center text-lg lg:text-2xl xl:text-3xl"
           >
             <Hotel
               size={20}
-              className="text-xl hover:text-yellow-500 lg:text-2xl xl:text-3xl yxl:mt-12"
+              className="text-xl hover:text-yellow-500 lg:text-2xl xl:text-3xl "
             />
             <h1 className="hover:text-yellow-500 font-bold">
               Villa hôtel
@@ -64,7 +65,7 @@ export default function NavBar() {
       {
         // Menu mobile
         isMenuOpen && (
-          <div className="md:hidden absolute top-10 left-0 w-full bg-slate-800 bg-opacity-90 text-slate-100 transition">
+          <div className="md:hidden absolute top-10 left-0 w-full bg-slate-950 bg-opacity-90 text-slate-100 transition">
             <div className="flex flex-col justify-center items-center h-[300px] space-y-4 font-bold">
               {menus.map((item, index) => (
                 <MenuItems key={index} item={item} />
