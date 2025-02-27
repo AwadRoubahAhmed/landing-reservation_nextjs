@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Calendar } from "@/components/ui/calendar";
-import { CalendarDays, Check } from "lucide-react";
+import { CalendarDays } from "lucide-react";
 
 const PRICE_PER_NIGTH = 120;
 
@@ -78,7 +78,7 @@ export default function Reservation() {
         </div>
       </div>
       {totaNights > 0 && (
-        <div className="bg-yellow-200 border-l-4 border-yellow-500 p-4 text-blue-700 rounded-lg">
+        <div className="bg-green-200 border-l-4 border-yellow-500 p-4 text-blue-700 rounded-lg">
           <p className="font-semibold text-lg text-gray-700">
             {` Nombre de nuits : ${totaNights}`}
           </p>
@@ -95,9 +95,7 @@ export default function Reservation() {
         {isSubmited ? (
           <div className="flex justify-center items-center space-x-2">
             <CalendarDays className="w-6 h-6 text-green-400" />
-            <span flex>
-              Réservation confirmée <Check className="text-green-700" />
-            </span>
+            <span className="">Réservation confirmée</span>
           </div>
         ) : (
           "Réserver"

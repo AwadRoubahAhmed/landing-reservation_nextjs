@@ -12,14 +12,6 @@ export default function NavBar() {
   // Comportements;
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // // Gestion du menu
-  // const menus = [
-  //   { title: "Home", href: "/" },
-  //   { title: "About", href: "/About" },
-  //   { title: "Nos Offres", href: "/NosOffres" },
-  //   { title: "Contact", href: "/Contact" },
-  // ];
-
   // Affichage(render);
   return (
     <nav className="flex bg-slate-950 bg-opacity-45 border-b text-slate-100 w-full h-10 fixed top-0 left-0 p-4 md:p-6 lg:p-8 z-10">
@@ -45,8 +37,8 @@ export default function NavBar() {
         </div>
         {/* Menu déroulant */}
         <div className="hidden md:flex justify-center items-center space-x-4 text-md lg:text-lg">
-          {menus.map((item, index) => (
-            <MenuItems key={index} item={item} />
+          {menus.map((item) => (
+            <MenuItems key={item.href} item={item} />
           ))}
         </div>
         {/* Utilisateur connecté */}
@@ -67,8 +59,8 @@ export default function NavBar() {
         isMenuOpen && (
           <div className="md:hidden absolute top-10 left-0 w-full bg-slate-950 bg-opacity-90 text-slate-100 transition">
             <div className="flex flex-col justify-center items-center h-[300px] space-y-4 font-bold">
-              {menus.map((item, index) => (
-                <MenuItems key={index} item={item} />
+              {menus.map((item) => (
+                <MenuItems key={item.href} item={item} />
               ))}
             </div>
           </div>

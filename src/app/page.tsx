@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Galeries from "./components/Galeries";
 import Header from "./components/Header";
 import Reservation from "./components/Reservation";
@@ -18,6 +19,7 @@ export default function Home() {
         fence={true}
       />
       <Reservation />
+      <Footer />
     </>
   );
 }

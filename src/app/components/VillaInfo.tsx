@@ -24,37 +24,37 @@ export const VillaInfo: React.FC<VillaInfoProps> = ({
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div className="flex items-center space-x-2">
           {hasPool && <Waves className="text-blue-500" />}
-          <span className="text-lg font-medium">Piscine</span>
+          <span className="text-lg font-light">Piscine</span>
         </div>
 
         <div className="flex items-center space-x-2">
           {hasKitchen && <CookingPot className="text-sky-500" />}
-          <span className="text-lg font-medium">Cuisine aménagée</span>
+          <span className="text-lg font-light">Cuisine aménagée</span>
         </div>
 
         <div className="flex items-center space-x-2">
           {Bath && <Bath className="text-yellow-500" />}
-          <span className="text-lg font-medium">
+          <span className="text-lg font-light">
             {bathrooms} Salle(s) de bain
           </span>
         </div>
 
         <div className="flex items-center space-x-2">
           {Bed && <Bed className="text-cyan-500" />}
-          <span className="text-lg font-medium">{bedrooms} Chambre(s)</span>
+          <span className="text-lg font-light">{bedrooms} Chambre(s)</span>
         </div>
 
         <div className="flex items-center space-x-2">
           <Square className="text-purple-500" />
-          <span className="text-lg font-medium">Surface {square}m carée</span>
+          <span className="text-lg font-light">Surface {square}m carée</span>
         </div>
 
         <div className="flex items-center space-x-2">
           {fence && <Fence className="text-green-500" />}
-          <span className="text-lg font-medium">Jardin</span>
+          <span className="text-lg font-light">Jardin</span>
         </div>
       </div>
-      <p className="mt-6">
+      <p className="mt-6 font-light">
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
         recusandae quam animi ut est sint, quibusdam a quia beatae dignissimos
         aliquid laboriosam. Asperiores natus ullam aspernatur, minima
