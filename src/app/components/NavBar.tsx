@@ -14,11 +14,11 @@ export default function NavBar() {
 
   // Affichage(render);
   return (
-    <nav className="flex bg-slate-950 bg-opacity-45 border-b text-slate-100 w-full h-10 fixed top-0 left-0 p-4 md:p-6 lg:p-8 z-10">
+    <nav className="flex bg-slate-950 bg-opacity-90  border-b text-slate-100 w-full h-10 fixed top-0 left-0 p-4 md:p-6 lg:p-8 z-10">
       {/* container */}
       <div className="container flex justify-between items-center">
         {/* Logo ( Icon + Title ) */}
-        <div className="flex">
+        <div className="flex   ">
           <Link
             href="/"
             className="flex justify-center items-center text-lg lg:text-2xl xl:text-3xl"
